@@ -1,0 +1,9 @@
+.hidden {
+    display: none;
+}
+.hiddenCountry {
+    display: none;
+}
+.hiddenCountries {
+    display: all;
+}
