@@ -16,7 +16,31 @@ async function fetchData() {
         div.appendChild(TextNodeCities)
         if (!(map.has(TextNodeCities.nodeValue))) {
         map.set(TextNodeCities.nodeValue)
-        document.getElementById("selector").appendChild(div) 
+        document.getElementById("selectorOfCountry").appendChild(div) 
         }
     }
-    console.log(map.has("Poland"))
+    let EventListenerKillerCountry = function() {
+        if(!(document.querySelector("#selectorOfCountry").value === "Select your country")) {
+        let deletingOption = document.querySelector("#deletedOption")
+        deletingOption.remove()
+        document.body.removeEventListener("mousemove", EventListenerKillerCountry)
+
+        let divSelect =document.body.createElement("select")
+        let divOption = document.body.createElement("option")
+        let divTextNode = document.body.createTextNode("Select your city")
+        divSelect.appendChild(divOption)
+        divOption.appendChild(divTextNode)
+        document.body.appendChild()
+        }
+    }
+    document.body.addEventListener("mousemove", EventListenerKillerCountry)
+
+
+    /* let EventListenerKillerCity = function() {
+        if(!(document.querySelector("#selectorOfCity").value === "Select your city")) {
+        let deletingOption = document.querySelector("#deletedOption")
+        deletingOption.remove()
+        document.body.removeEventListener("mousemove", EventListenerKillerCity)
+        }
+    }
+    document.body.addEventListener("mousemove", EventListenerKillerCity) */
