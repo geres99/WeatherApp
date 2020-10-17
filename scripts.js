@@ -21,7 +21,7 @@ async function fetchData() {
         let citiesOfWorld = citiesList[i].name
         let TextNodeCitiesOfWorld = document.createTextNode(citiesOfWorld)
         div2.appendChild(TextNodeCitiesOfWorld)
-        div2.className = citiesList[i].country
+        div2.className = "hidden"
         document.getElementById("selectorOfCity").appendChild(div2) 
     }
     document.body.addEventListener("mousedown", function() {
