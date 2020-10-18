@@ -1,10 +1,3 @@
-async function fetchData() {
-    const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=warsaw&appid=d3c8097a4728795abb4a589545a952ee");
-    const data = await response.text();
-    const obj = JSON.parse(data)
-    document.getElementById("testingObj").innerHTML = obj.name
-
-}
     const citiesList = JSON.parse(cities)
     console.log(citiesList)
     let map = new Map()
@@ -18,7 +11,7 @@ async function fetchData() {
         document.getElementById("selectorOfCountry").appendChild(div) 
         }   
     }
-    document.querySelector("#selectorOfCountry").addEventListener("mousedown", function() {
+    document.querySelector("#selectorOfCountry").addEventListener("change", function() {
         if(!(document.querySelector("#selectorOfCountry").value === "Select your country")) {
             document.querySelector("#selectorOfCity").innerHTML = ""
             for(let i = 0; i < citiesList.length; i++) {
@@ -41,3 +34,11 @@ async function fetchData() {
     }
     document.body.addEventListener("mousedown", EventListenerKillerCountry)
 console.log(selectorOfCountry[1])
+
+async function fetchData() {
+    const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + document.querySelector("#selectorOfCity").value + "&appid=d3c8097a4728795abb4a589545a952ee");
+    const data = await response.text();
+    const obj = JSON.parse(data)
+    document.getElementById("testingObj").innerHTML = "The weather in " + obj.name + " is " + obj.weather[0].main + " with temperature of " + (Math.floor(obj.main.temp - 273.15)) + "C"
+    console.log(obj.main.temp)
+}
