@@ -7,8 +7,8 @@
         let TextNodeCities = document.createTextNode(countrys)
         div.appendChild(TextNodeCities)
         if (!(map.has(TextNodeCities.nodeValue))) {
-        map.set(TextNodeCities.nodeValue)
-        document.getElementById("selectorOfCountry").appendChild(div) 
+            map.set(TextNodeCities.nodeValue)
+            document.getElementById("selectorOfCountry").appendChild(div) 
         }   
     }
     document.querySelector("#selectorOfCountry").addEventListener("change", function() {
@@ -16,20 +16,20 @@
             document.querySelector("#selectorOfCity").innerHTML = ""
             for(let i = 0; i < citiesList.length; i++) {
                 if(citiesList[i].country === document.querySelector("#selectorOfCountry").value) {
-                let div2 = document.createElement("option")
-                let citiesOfWorld = citiesList[i].name
-                let TextNodeCitiesOfWorld = document.createTextNode(citiesOfWorld)
-                div2.appendChild(TextNodeCitiesOfWorld)
-                document.getElementById("selectorOfCity").appendChild(div2) 
+                    let div2 = document.createElement("option")
+                    let citiesOfWorld = citiesList[i].name
+                    let TextNodeCitiesOfWorld = document.createTextNode(citiesOfWorld)
+                    div2.appendChild(TextNodeCitiesOfWorld)
+                    document.getElementById("selectorOfCity").appendChild(div2) 
                 }
             }
         }
     })
     let EventListenerKillerCountry = function() {
         if(!(document.querySelector("#selectorOfCountry").value === "Select your country")) {
-        let deletingOption = document.querySelector("#deletedOption")
-        deletingOption.remove()
-        document.body.removeEventListener("mousedown", EventListenerKillerCountry)
+            let deletingOption = document.querySelector("#deletedOption")
+            deletingOption.remove()
+            document.body.removeEventListener("mousedown", EventListenerKillerCountry)
     }
     }
     document.body.addEventListener("mousedown", EventListenerKillerCountry)
