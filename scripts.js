@@ -18,8 +18,18 @@ async function fetchData() {
         document.getElementById("selectorOfCountry").appendChild(div) 
         }   
     }
-    document.body.addEventListener("mousedown", function() {
+    document.querySelector("#selectorOfCountry").addEventListener("mousedown", function() {
         if(!(document.querySelector("#selectorOfCountry").value === "Select your country")) {
+            document.querySelector("#selectorOfCity").innerHTML = ""
+            for(let i = 0; i < citiesList.length; i++) {
+                if(citiesList[i].country === document.querySelector("#selectorOfCountry").value) {
+                let div2 = document.createElement("option")
+                let citiesOfWorld = citiesList[i].name
+                let TextNodeCitiesOfWorld = document.createTextNode(citiesOfWorld)
+                div2.appendChild(TextNodeCitiesOfWorld)
+                document.getElementById("selectorOfCity").appendChild(div2) 
+                }
+            }
         }
     })
     let EventListenerKillerCountry = function() {
@@ -27,21 +37,6 @@ async function fetchData() {
         let deletingOption = document.querySelector("#deletedOption")
         deletingOption.remove()
         document.body.removeEventListener("mousedown", EventListenerKillerCountry)
-        
-        let divOption = document.createElement("option")
-        let divTextNode = document.createTextNode("Select your city")
-        divOption.appendChild(divTextNode)
-        document.querySelector("#selectorOfCity").appendChild(divOption)
-
-    for(let i = 0; i < citiesList.length; i++) {
-        if(citiesList[i].country === document.querySelector("#selectorOfCountry").value) {
-        let div2 = document.createElement("option")
-        let citiesOfWorld = citiesList[i].name
-        let TextNodeCitiesOfWorld = document.createTextNode(citiesOfWorld)
-        div2.appendChild(TextNodeCitiesOfWorld)
-        document.getElementById("selectorOfCity").appendChild(div2) 
-        }
-    }
     }
     }
     document.body.addEventListener("mousedown", EventListenerKillerCountry)
