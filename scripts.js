@@ -17,17 +17,9 @@ async function fetchData() {
         map.set(TextNodeCities.nodeValue)
         document.getElementById("selectorOfCountry").appendChild(div) 
         }   
-        let div2 = document.createElement("option")
-        let citiesOfWorld = citiesList[i].name
-        let TextNodeCitiesOfWorld = document.createTextNode(citiesOfWorld)
-        div2.appendChild(TextNodeCitiesOfWorld)
-        div2.className = "hidden"
-        document.getElementById("selectorOfCity").appendChild(div2) 
     }
     document.body.addEventListener("mousedown", function() {
         if(!(document.querySelector("#selectorOfCountry").value === "Select your country")) {
-            let div3 = document.querySelector(".hidden")
-            div3.style.display = "initial"
         }
     })
     let EventListenerKillerCountry = function() {
@@ -40,6 +32,16 @@ async function fetchData() {
         let divTextNode = document.createTextNode("Select your city")
         divOption.appendChild(divTextNode)
         document.querySelector("#selectorOfCity").appendChild(divOption)
+
+    for(let i = 0; i < citiesList.length; i++) {
+        if(citiesList[i].country === document.querySelector("#selectorOfCountry").value) {
+        let div2 = document.createElement("option")
+        let citiesOfWorld = citiesList[i].name
+        let TextNodeCitiesOfWorld = document.createTextNode(citiesOfWorld)
+        div2.appendChild(TextNodeCitiesOfWorld)
+        document.getElementById("selectorOfCity").appendChild(div2) 
+        }
+    }
     }
     }
     document.body.addEventListener("mousedown", EventListenerKillerCountry)
