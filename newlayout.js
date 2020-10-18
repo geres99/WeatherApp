@@ -13,12 +13,6 @@ for(let i = 0; i < citiesList.length; i++) {
         countryListArray[v].push([citiesList[i].name])
     }
 }
-async function fetchData() {
-    const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + document.querySelector("#selectorOfCity").value + "&appid=d3c8097a4728795abb4a589545a952ee");
-    const data = await response.text();
-    const obj = JSON.parse(data)
-    document.getElementById("testingObj").innerHTML = "The weather in " + obj.name + " is " + obj.weather[0].main + " with temperature of " + (Math.floor(obj.main.temp - 273.15)) + "C"
-}
 console.log(countryListArray,map.get("Poland").length - 1)
 console.log(map)
 for(let i = 0; i < countryListArray.length; i++) {
@@ -56,5 +50,4 @@ async function fetchData() {
     const data = await response.text();
     const obj = JSON.parse(data)
     document.getElementById("testingObj").innerHTML = "The weather in " + obj.name + " is " + obj.weather[0].main + " with temperature of " + (Math.floor(obj.main.temp - 273.15)) + "C"
-    console.log(obj.main.temp)
 }
