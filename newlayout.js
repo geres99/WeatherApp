@@ -46,8 +46,15 @@ let EventListenerKillerCountry = function() {
     if(!(document.querySelector("#selectorOfCountry").value === "Select your country")) {
         let deletingOption = document.querySelector("#deletedOption")
         deletingOption.remove()
-        //document.body.removeEventListener("mousedown", EventListenerKillerCountry)
+        document.body.removeEventListener("mousedown", EventListenerKillerCountry)
 }
 }
 document.body.addEventListener("mousedown", EventListenerKillerCountry)
-//document.querySelector("#selectorOfCountry").value
+
+async function fetchData() {
+    const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + document.querySelector("#selectorOfCity").value + "&appid=d3c8097a4728795abb4a589545a952ee");
+    const data = await response.text();
+    const obj = JSON.parse(data)
+    document.getElementById("testingObj").innerHTML = "The weather in " + obj.name + " is " + obj.weather[0].main + " with temperature of " + (Math.floor(obj.main.temp - 273.15)) + "C"
+    console.log(obj.main.temp)
+}
