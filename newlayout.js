@@ -13,6 +13,7 @@ for(let i = 0; i < citiesList.length; i++) {
         countryListArray[v].push([citiesList[i].name])
     }
 }
+
 console.log(countryListArray,map.get("Poland").length - 1)
 console.log(map)
 for(let i = 0; i < countryListArray.length; i++) {
@@ -32,7 +33,8 @@ document.querySelector("#selectorOfCountry").addEventListener("change", function
         dupa1.src = "Images/Flags/" + document.querySelector("#selectorOfCountry").value + "-flag-small.png"
         dupa1.style = "width:25px"
         dupa1.className = "flex-item"
-        document.querySelector("#testingObj").innerHTML = ""
+        document.querySelector("#countryFlag").innerHTML = ""
+        document.querySelector("#cityImage").innerHTML = ""
         document.querySelector("#countryFlag").appendChild(dupa)
         document.querySelector("#cityImage").appendChild(dupa1)
         document.querySelector("#selectorOfCity").innerHTML = ""
