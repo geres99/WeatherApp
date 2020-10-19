@@ -24,6 +24,17 @@ for(let i = 0; i < countryListArray.length; i++) {
 
 document.querySelector("#selectorOfCountry").addEventListener("change", function() {
     if(!(document.querySelector("#selectorOfCountry").value === "Select your country")) {
+        let dupa = document.createElement("img")
+        dupa.src = "Images/Flags/" + document.querySelector("#selectorOfCountry").value + "-flag-small.png"
+        dupa.style = "width:25px"
+        dupa.className = "flex-item"
+        let dupa1 = document.createElement("img")
+        dupa1.src = "Images/Flags/" + document.querySelector("#selectorOfCountry").value + "-flag-small.png"
+        dupa1.style = "width:25px"
+        dupa1.className = "flex-item"
+        document.querySelector("#testingObj").innerHTML = ""
+        document.querySelector("#countryFlag").appendChild(dupa)
+        document.querySelector("#cityImage").appendChild(dupa1)
         document.querySelector("#selectorOfCity").innerHTML = ""
         for(let i = 0; i < map.get(document.querySelector("#selectorOfCountry").value).length - 1; i++) {
                 let div2 = document.createElement("option")

@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    align-items: flex-start;
+}
+.flex-item {
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+}
+#dupa {
+    flex-direction: row;
+}
