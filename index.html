@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="fetchData()">Fetch data</button>
     <div id=row>
+        Your country:
         <select id= selectorOfCountry>
             <option id=deletedOption>Select your country</option>
         </select>
@@ -16,10 +16,13 @@
     </div>
 
     <div id=row>
+        Your city:
         <select id= selectorOfCity>
         </select>
         <div id = cityImage></div>
     </div>
+    <button onclick="fetchData()">Fetch data</button>
+    <div class = temp></div>
     <script src="cities.js"></script>
     <script src="newlayout.js"></script>
 </body>
