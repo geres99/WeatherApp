@@ -26,11 +26,11 @@ for(let i = 0; i < countryListArray.length; i++) {
 document.querySelector("#selectorOfCountry").addEventListener("change", function() {
     if(!(document.querySelector("#selectorOfCountry").value === "Select your country")) {
         let countryFlagChosen = document.createElement("img")
-        countryFlagChosen.src = "Images/Flags/" + document.querySelector("#selectorOfCountry").value + "-flag-small.png"
+        countryFlagChosen.src = "Images/Flags/" + document.querySelector("#selectorOfCountry").value.toLowerCase() + "-flag-small.png"
         countryFlagChosen.style = "width:25px"
         countryFlagChosen.className = "flex-item"
         let CityImageChosen = document.createElement("img")
-        CityImageChosen.src = "Images/Flags/" + document.querySelector("#selectorOfCountry").value + "-flag-small.png"
+        CityImageChosen.src = "Images/buildings.png"
         CityImageChosen.style = "width:25px"
         CityImageChosen.className = "flex-item"
         document.querySelector("#countryFlag").innerHTML = ""
@@ -63,7 +63,7 @@ async function fetchData() {
     const data = await response.text();
     const obj = JSON.parse(data)
     let WeatherImage = document.createElement("img")
-        WeatherImage.src = "Images/Weather/3127120-weather/png/" + obj.weather[0].main.toLowerCase() + ".png"
+        WeatherImage.src = "Images/Weather/3127120-weather/png/" + obj.weather[0].main + ".png"
         WeatherImage.style = "width:200px"
         document.querySelector(".weather").innerHTML = ""
         document.querySelector(".weather").appendChild(WeatherImage)
