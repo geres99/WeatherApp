@@ -7,21 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <div id=row>
-        Your country:
+    <div class="row">
+        <div class="label">Your country:</div>
         <select id= selectorOfCountry>
             <option id=deletedOption>Select your country</option>
         </select>
-    <div id = countryFlag></div>
+    <div class="flag" id = countryFlag></div>
     </div>
 
-    <div id=row>
-        Your city:
+    <div class="row">
+        <div class="label">Your city:</div>
         <select id= selectorOfCity>
         </select>
-        <div id = cityImage></div>
+        <div class="flag" id = cityImage></div>
     </div>
     <button onclick="fetchData()">Fetch data</button>
+    <div class = "weather">
+    </div>
     <div class = temp></div>
     <script src="cities.js"></script>
     <script src="newlayout.js"></script>
