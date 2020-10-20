@@ -63,7 +63,7 @@ async function fetchData() {
     const data = await response.text();
     const obj = JSON.parse(data)
     let WeatherImage = document.createElement("img")
-        WeatherImage.src = "Images/Weather/3127120-weather/png/" + obj.weather[0].main + ".png"
+        WeatherImage.src = "Images/Weather/3127120-weather/png/" + obj.weather[0].main.toLowerCase() + ".png"
         WeatherImage.style = "width:200px"
         document.querySelector(".weather").innerHTML = ""
         document.querySelector(".weather").appendChild(WeatherImage)
