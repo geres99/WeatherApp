@@ -27,10 +27,21 @@ select {
 .row > .flag {
     flex: 0 0 5%;
 }
+.row > button {
+    flex: 0 0 15%;
+    height: 35px;
+    margin-top: 100px;
+}
+.row > .empty1 {
+    flex: 0 0 26.5%;
+}
+.row > .empty2 {
+    flex: 0 0 18.5%;
+}
 .weather {
     display: flex;
     margin-left: 70%;
-    margin-top: -90px;
+    margin-top: -190px;
     flex-direction: column;
     justify-content: center;
 }
@@ -44,4 +55,5 @@ select {
 .textTemperature >* {
     display: flex;
     margin-left: 5px;
+    
 }
